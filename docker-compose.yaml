@@ -16,6 +16,7 @@ services:
         DBServer: fm-sql-server
       ports:
           - 5000:5000
+          - 5001:5001
       command: dotnet run
       depends_on:
         - fm-sql-server
