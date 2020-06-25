@@ -1,0 +1,21 @@
+version: '3'
+services:
+  fm-sql-server:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    ports:
+    - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: W12!arwadGw34
+      MSSQL_PID: Express
+  main:
+      container_name: main
+      build: .
+      environment: 
+        DBPassword: W12!arwadGw34
+        DBServer: fm-sql-server
+      ports:
+          - 5000:5000
+      command: dotnet run
+      depends_on:
+        - fm-sql-server
