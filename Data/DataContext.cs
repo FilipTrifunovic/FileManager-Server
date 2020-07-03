@@ -8,5 +8,7 @@ namespace FileManager.Data
     {
         public DataContext(DbContextOptions<DataContext> options): base(options){}
         public DbSet<Words> Words {get;set;}
+        public DbSet<User> Users {get;set;}
+
     }
 }
